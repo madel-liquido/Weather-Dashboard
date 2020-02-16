@@ -1,0 +1,46 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+h6,
+.list-group {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+button {
+    color: blue;
+}
+
+.citySearchContent {
+    background-color: #E8E8E8;
+    height: 714px;
+}
+
+.searchBar {
+    padding-left: 10px;
+}
+
+.weatherContent,
+.temperature,
+.windspeed,
+.humidity,
+.UVIndex,
+.fiveDayForecast {
+    padding-top: 15px;
+}
+
+.cityWeatherContent {
+    height: 300px;
+}
+
+.cityName {
+    font-size: xx-large;
+}

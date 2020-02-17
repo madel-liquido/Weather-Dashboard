@@ -1,12 +1,5 @@
-.nav {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
 h2 {
     color: white;
-    text-align: center;
 }
 
 h6,

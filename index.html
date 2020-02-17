@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark nav">
+    <nav class="navbar navbar-dark justify-content-center bg-dark">
         <h2>Weather Dashboard</h2>
     </nav>
 
@@ -48,7 +48,7 @@
         <div class="col-sm-9 weatherContent">
             <div class="card">
                 <div class="card-body cityWeatherContent">
-                    <h5 class="card-title cityName">Atlanta</h5>
+                    <h5 class="card-title cityName">City</h5>
                     <p class="weatherImage"></p>
                     <div class="temperature">Temperature: </div>
                     <div class="humidity">Humidity:</div>
@@ -110,54 +110,7 @@
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(".searchButton").on("click", function(event) {
-                // This is our API key
-                var APIKey = "6d4195a03381e835c0506dab4bd5193c";
-
-                // Here we are building the URL we need to query the database
-                var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-                    "q=" + $(".cityInSearchBar").val() + "&units=imperial&appid=" + APIKey;
-
-                // Here we run our AJAX call to the OpenWeatherMap API
-                $.ajax({
-                        url: queryURL,
-                        method: "GET"
-                    })
-                    // We store all of the retrieved data inside of an object called "response"
-                    .then(function(response) {
-
-                        // Log the queryURL
-                        console.log(queryURL);
-
-                        // Log the resulting object
-                        console.log(response);
-
-                        // Transfer content to HTML
-                        //var imageURL = response.weather.icon;
-                        // var image = $("<img>").attr("src", imageURL);
-                        //$(".weatherImage").append(imageURL);
-
-                        $(".cityName").html("<h1>" + response.name + "</h1>");
-                        $(".windspeed").text("Wind Speed: " + response.wind.speed + " MPH");
-                        $(".humidity").text("Humidity: " + response.main.humidity + "%");
-                        $(".temperature").html("Temperature: " + response.main.temp + "&#8457;");
-                    });
-
-                // Log the data in the console as well
-                console.log("Wind Speed: " + response.wind.speed);
-                console.log("Humidity: " + response.main.humidity);
-                console.log("Temperature (F): " + response.main.temp);
-
-
-
-                $(".searchButton").on("click", function(event) {
-                    event.preventDefault();
-                    console.log($(".cityInSearchBar").val());
-
-                });
-            });
-        </script>
+        <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 var searchHistory = [];
-// for (var i = 0; i < searchHistory.length; i++) {
-//     $(".cityList").append($("<li>").addClass("list-group-item").val("hello" + i));
-// };
+for (var i = 0; i < searchHistory.length; i++) {
+    $("cityList").append("<li class=\"list-group-item\">" + searchHistory[i] + "</li>");
+}
 
 $(".searchButton").on("click", function(event) {
 
@@ -38,7 +38,8 @@ $(".searchButton").on("click", function(event) {
         });
     });
     searchHistory.push(currentCity);
-    console.log(searchHistory);
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
 });
 
 

@@ -11,21 +11,32 @@ $(".searchButton").on("click", function(event) {
     })
 
     .then(function(response) {
-
-        // Log the resulting object
         console.log(response);
-
 
         $(".cityName").html("<h1>" + response.name + "</h1>");
         $(".windspeed").text("Wind Speed: " + response.wind.speed + " MPH");
         $(".humidity").text("Humidity: " + response.main.humidity + "%");
         $(".temperature").html("Temperature: " + response.main.temp + "&#8457;");
-        // Log the data in the console as well
-        console.log("Wind Speed: " + response.wind.speed);
-        console.log("Humidity: " + response.main.humidity);
-        console.log("Temperature (F): " + response.main.temp);
-    });
 
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
+        var UVURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+
+        console.log(lat);
+        console.log(lon);
+
+        $.ajax({
+            url: UVURL,
+            method: "GET"
+        })
+
+        .then(function(response) {
+            console.log(response);
+            console.log(response[0].value);
+
+            $(".UVIndex").html("UV Index: " + "<span class=\"bg-danger text-light rounded p-1\">" + response[0].value + "</span>");
+        });
+    });
 });
 
 
@@ -39,8 +50,6 @@ $(".searchButton").on("click", function(event) {
         url: fiveDayURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        console.log(response.list[0].main.temp - 273.15);
         for (var i = 0; i < totalFiveDayCards; i++) {
             $("#card" + i).empty();
         };

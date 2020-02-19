@@ -1,7 +1,5 @@
 var searchHistory = [];
-for (var i = 0; i < searchHistory.length; i++) {
-    $("cityList").append("<li class=\"list-group-item\">" + searchHistory[i] + "</li>");
-}
+
 
 $(".searchButton").on("click", function(event) {
 
@@ -40,6 +38,9 @@ $(".searchButton").on("click", function(event) {
     searchHistory.push(currentCity);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
+
+    $(".list-group").append("<li class=\"list-group-item \">" + searchHistory[searchHistory.length - 1] + "</li>");
+
 });
 
 

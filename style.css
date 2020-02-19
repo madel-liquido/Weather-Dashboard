@@ -37,3 +37,8 @@ button {
 .cityName {
     font-size: xx-large;
 }
+
+.weatherImage {
+    float: right;
+    position: relative;
+}

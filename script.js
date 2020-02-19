@@ -1,13 +1,11 @@
 var searchHistory = [];
 
-
 $(".searchButton").on("click", function(event) {
 
     var APIKey = "6d4195a03381e835c0506dab4bd5193c";
     var currentCity = $(".cityInSearchBar").val();
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
         "q=" + currentCity + "&units=imperial&appid=" + APIKey;
-
 
     $.ajax({
         url: queryURL,
@@ -38,7 +36,6 @@ $(".searchButton").on("click", function(event) {
     searchHistory.push(currentCity);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     var storedCities = JSON.parse(localStorage.getItem("searchHistory"));
-
     $(".list-group").append("<li class=\"list-group-item \">" + searchHistory[searchHistory.length - 1] + "</li>");
 
 });
